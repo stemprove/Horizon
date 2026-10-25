@@ -1,0 +1,180 @@
+{
+  "ai": {
+    "provider": "openai",
+    "model": "deepseek-chat",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "base_url": "https://api.deepseek.com"
+  },
+  "sources": {
+    "hackernews": {
+      "enabled": true,
+      "fetch_top_stories": 30,
+      "min_score": 50
+    },
+    "rss": [
+      {
+        "name": "Elon Musk - Teslarati",
+        "url": "https://www.teslarati.com/tag/elon-musk/feed/",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Elon Musk - Electrek",
+        "url": "https://electrek.co/guides/elon-musk/feed/",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Trump Truth Social Archive",
+        "url": "https://www.trumpstruth.org/feed",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Politico Trump",
+        "url": "https://rss.politico.com/donald-trump.xml",
+        "profile": "tech-news"
+      },
+      {
+        "name": "OpenAI Blog",
+        "url": "https://openai.com/blog/rss.xml",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Anthropic News",
+        "url": "https://www.anthropic.com/news/rss.xml",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Google AI Blog",
+        "url": "https://blog.google/technology/ai/rss/",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/feed.xml",
+        "profile": "tech-news"
+      },
+      {
+        "name": "The Decoder AI",
+        "url": "https://the-decoder.com/feed/",
+        "profile": "tech-news"
+      },
+      {
+        "name": "TechCrunch AI",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Kitco Gold & Silver",
+        "url": "https://www.kitco.com/rss/gold.xml",
+        "profile": "finance-news"
+      },
+      {
+        "name": "GoldSeek",
+        "url": "https://goldseek.com/rss.xml",
+        "profile": "finance-news"
+      },
+      {
+        "name": "Investing.com Precious Metals",
+        "url": "https://www.investing.com/rss/news_301.rss",
+        "profile": "finance-news"
+      },
+      {
+        "name": "British Council TeachingEnglish",
+        "url": "https://www.teachingenglish.org.uk/rss.xml",
+        "profile": "tech-blog"
+      },
+      {
+        "name": "UsingEnglish Resources",
+        "url": "https://feeds.feedburner.com/UsingEnglishWhatsNew",
+        "profile": "tech-blog"
+      },
+      {
+        "name": "Larry Ferlazzo ESL",
+        "url": "https://larryferlazzo.edublogs.org/feed/",
+        "profile": "tech-blog"
+      },
+      {
+        "name": "BusyTeacher",
+        "url": "https://busyteacher.org/feed/",
+        "profile": "tech-blog"
+      },
+      {
+        "name": "We Are Teachers",
+        "url": "https://www.weareteachers.com/feed/",
+        "profile": "tech-blog"
+      },
+      {
+        "name": "TeachThought",
+        "url": "https://www.teachthought.com/feed/",
+        "profile": "tech-blog"
+      },
+      {
+        "name": "Edutopia",
+        "url": "https://www.edutopia.org/rss.xml",
+        "profile": "tech-blog"
+      }
+    ],
+    "reddit": {
+      "subreddits": [
+        {
+          "subreddit": "MachineLearning",
+          "sort": "hot"
+        },
+        {
+          "subreddit": "LocalLLaMA",
+          "sort": "hot"
+        },
+        {
+          "subreddit": "artificial",
+          "sort": "hot"
+        },
+        {
+          "subreddit": "Gold",
+          "sort": "hot"
+        },
+        {
+          "subreddit": "Silverbugs",
+          "sort": "hot"
+        },
+        {
+          "subreddit": "ESL_Teachers",
+          "sort": "hot"
+        },
+        {
+          "subreddit": "Teachers",
+          "sort": "hot"
+        }
+      ],
+      "fetch_comments": 5
+    }
+  },
+  "processing": {
+    "profiles_dir": "profiles",
+    "default_profile": "tech-news",
+    "profile_settings": {
+      "tech-news": {
+        "threshold": 6.5,
+        "topic_dedup": true
+      },
+      "finance-news": {
+        "threshold": 6.0,
+        "topic_dedup": true
+      },
+      "tech-blog": {
+        "threshold": 5.5,
+        "topic_dedup": true
+      }
+    },
+    "max_items_per_profile": 15,
+    "max_total_items": 40
+  },
+  "output": {
+    "languages": ["zh", "en"],
+    "formats": ["markdown"],
+    "webhook": {
+      "enabled": true,
+      "url_env": "HORIZON_WEBHOOK_URL",
+      "platform": "feishu",
+      "languages": ["zh"]
+    }
+  }
+}
