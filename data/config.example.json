@@ -41,100 +41,177 @@
     "subscribe_keyword": "SUBSCRIBE",
     "unsubscribe_keyword": "UNSUBSCRIBE"
   },
-  "sources": {
-    "github": [
-      {
-        "type": "user_events",
-        "username": "torvalds",
-        "enabled": true,
-        "profile": "tech-news"
-      },
-      {
-        "type": "repo_releases",
-        "owner": "astral-sh",
-        "repo": "uv",
-        "enabled": true,
-        "profile": "tech-news"
-      }
-    ],
-    "hackernews": {
-      "enabled": true,
-      "fetch_top_stories": 20,
-      "min_score": 100,
+"sources": {
+  "hackernews": {
+    "enabled": true,
+    "fetch_top_stories": 30,
+    "min_score": 50
+  },
+  "rss": [
+    // ========== 人物跟踪（马斯克、瑞·达利欧、特朗普） ==========
+    {
+      "name": "Elon Musk 相关新闻 (Teslarati)",
+      "url": "https://www.teslarati.com/tag/elon-musk/feed/",
       "profile": "tech-news"
     },
-    "rss": [
-      {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/atom/everything/",
-        "enabled": true,
-        "category": "ai-tools",
-        "profile": "tech-news"
-      },
-      {
-        "name": "vLLM Blog",
-        "url": "https://vllm.ai/blog/rss.xml",
-        "enabled": true,
-        "category": "llm-inference",
-        "profile": "tech-blog",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "Sean Goedecke",
-        "url": "https://www.seangoedecke.com/rss.xml",
-        "enabled": true,
-        "category": "software-engineering",
-        "profile": "tech-blog",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "CNBC Finance",
-        "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "enabled": true,
-        "category": "finance",
-        "profile": "finance-news",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "NVIDIA CUDA Technical Blog",
-        "url": "https://developer.nvidia.com/blog/tag/cuda/feed/",
-        "enabled": true,
-        "category": "cuda",
-        "profile": "tech-blog",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "LWN.net (subscriber full-text)",
-        "url": "https://lwn.net/headlines/full_text?key=${LWN_KEY}",
-        "enabled": false,
-        "category": "linux",
-        "profile": "tech-news"
-      }
-    ],
-    "reddit": {
-      "enabled": true,
-      "subreddits": [
-        {
-          "subreddit": "MachineLearning",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 15,
-          "min_score": 50,
-          "profile": "tech-news"
-        }
-      ],
-      "users": [
-        {
-          "username": "iamthatis",
-          "enabled": true,
-          "sort": "new",
-          "fetch_limit": 10,
-          "profile": "tech-news"
-        }
-      ],
-      "fetch_comments": 5
+    {
+      "name": "Elon Musk 相关新闻 (Electrek)",
+      "url": "https://electrek.co/guides/elon-musk/feed/",
+      "profile": "tech-news"
     },
+    {
+      "name": "Ray Dalio 官方观点",
+      "url": "https://www.linkedin.com/pulse/rss",
+      "profile": "finance-news"
+    },
+    {
+      "name": "Trump Truth Social 归档 RSS",
+      "url": "https://www.trumpstruth.org/feed",
+      "profile": "tech-news"
+    },
+    {
+      "name": "Politico Trump 新闻",
+      "url": "https://rss.politico.com/donald-trump.xml",
+      "profile": "tech-news"
+    },
+
+    // ========== 中美 AI 工具 & 应用 ==========
+    {
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/blog/rss.xml",
+      "profile": "tech-news"
+    },
+    {
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news/rss.xml",
+      "profile": "tech-news"
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "profile": "tech-news"
+    },
+    {
+      "name": "DeepSeek / 中国开源 AI 相关",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "profile": "tech-news"
+    },
+    {
+      "name": "The Decoder AI 新闻",
+      "url": "https://the-decoder.com/feed/",
+      "profile": "tech-news"
+    },
+    {
+      "name": "TechCrunch AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "profile": "tech-news"
+    },
+    {
+      "name": "Ars Technica AI",
+      "url": "https://arstechnica.com/ai/feed/",
+      "profile": "tech-news"
+    },
+
+    // ========== 黄金、白银价格 + COT/库存数据 ==========
+    {
+      "name": "Kitco 黄金白银新闻",
+      "url": "https://www.kitco.com/rss/gold.xml",
+      "profile": "finance-news"
+    },
+    {
+      "name": "GoldSeek COT & 贵金属",
+      "url": "https://goldseek.com/rss.xml",
+      "profile": "finance-news"
+    },
+    {
+      "name": "Silver Dominion COT & 库存",
+      "url": "https://silverdominion.com/feed/",
+      "profile": "finance-news"
+    },
+    {
+      "name": "CFTC COT 官方数据相关分析",
+      "url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+      "profile": "finance-news"
+    },
+    {
+      "name": "Investing.com 贵金属",
+      "url": "https://www.investing.com/rss/news_301.rss",
+      "profile": "finance-news"
+    },
+
+    // ========== 英语教学技巧 & 资源 ==========
+    {
+      "name": "British Council TeachingEnglish",
+      "url": "https://www.teachingenglish.org.uk/rss.xml",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "UsingEnglish 最新资源",
+      "url": "https://feeds.feedburner.com/UsingEnglishWhatsNew",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "Larry Ferlazzo ESL 资源",
+      "url": "https://larryferlazzo.edublogs.org/feed/",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "BusyTeacher ESL 工作表",
+      "url": "https://busyteacher.org/feed/",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "iSLCollective ESL 资源",
+      "url": "https://en.islcollective.com/rss",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "EFL Magazine",
+      "url": "https://eflmagazine.com/feed/",
+      "profile": "tech-blog"
+    },
+
+    // ========== 中小学教学资源 ==========
+    {
+      "name": "We Are Teachers",
+      "url": "https://www.weareteachers.com/feed/",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "TeachThought K-12",
+      "url": "https://www.teachthought.com/feed/",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "eSchool News",
+      "url": "https://www.eschoolnews.com/feed/",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "Edutopia 教学策略",
+      "url": "https://www.edutopia.org/rss.xml",
+      "profile": "tech-blog"
+    },
+    {
+      "name": "教育部相关政策（示例 RSSHub）",
+      "url": "https://rsshub.app/gov/moe/newest_file",
+      "profile": "tech-blog"
+    }
+  ],
+  "reddit": {
+    "subreddits": [
+      { "subreddit": "MachineLearning", "sort": "hot" },
+      { "subreddit": "LocalLLaMA", "sort": "hot" },
+      { "subreddit": "artificial", "sort": "hot" },
+      { "subreddit": "Gold", "sort": "hot" },
+      { "subreddit": "Silverbugs", "sort": "hot" },
+      { "subreddit": "ESL_Teachers", "sort": "hot" },
+      { "subreddit": "Teachers", "sort": "hot" },
+      { "subreddit": "education", "sort": "hot" }
+    ],
+    "fetch_comments": 5
+  }
+}
     "twitter": {
       "enabled": false,
       "users": ["karpathy", "ylecun"],
